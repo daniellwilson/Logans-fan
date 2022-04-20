@@ -14,7 +14,6 @@ float goodTemp=27.2;
 int pushDelay=1000;
 
 void setup() {
-  // put your setup code here, to run once:
 Serial.begin (9600);
 HT.begin();
 delay(setTime);
@@ -23,7 +22,6 @@ pinMode (ledPin,OUTPUT);
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
 
 humidity=HT.readHumidity();
 tempC=HT.readTemperature();
@@ -38,8 +36,6 @@ if (tempC>upperTempLimit)
     delay(pushDelay);
     digitalWrite(ledPin, LOW);
     while (tempC>goodTemp){
-     //radio.read(&message, sizeof(message));
-     //message = temp;
      Serial.println("I'm in the while loop ");
      tempC=HT.readTemperature();
      Serial.println("Temperature in C ");
